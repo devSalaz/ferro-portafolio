@@ -25,7 +25,7 @@ useSeoMeta(page.value.seo);
                 </div>
             </div>
 
-            <!-- Proyects mobile -->
+            <!-- Projects mobile -->
              <HomeWorksMobile v-if="page.projects && !isDesktop" :projects="page.projects"/>
 
             <HomeWorksSlider v-if="page.projects && isDesktop" :projects="page.projects" />

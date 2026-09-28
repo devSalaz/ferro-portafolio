@@ -19,7 +19,7 @@ const props = defineProps<Props>();
 </script>
 
 <template>
-    <ul aria-label="Juan David Ferro Proyects" class="lg:hidden flex flex-col gap-y-6 pb-9">
+    <ul aria-label="Juan David Ferro Projects" class="lg:hidden flex flex-col gap-y-6 pb-9">
         <li v-for="project in props.projects" :key="`${project.title}-info-mobile`" class="sticky top-0 bg-light">
             <NuxtLink :to="project.to" :aria-label="`${project.title} link`">
                 <NuxtImg v-if="project.media.type === 'image'" :src="project.media.src" :alt="project.media.alt ?? ''" class="w-full h-auto" loading="lazy" />

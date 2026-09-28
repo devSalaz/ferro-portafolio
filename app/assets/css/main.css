@@ -82,15 +82,15 @@ body {
   color: var(--color-light);
 }
 
-h1, h2, h3, h4, h5, h6, p, li {
+h1, h2, h3, h4, h5, h6, p, li, a {
     font-size: 0.9375rem;
     font-style: normal;
     line-height: 120%;
 }
 
 /* Mobile Portrait */
-@media screen and (max-width: 479px) {
-  h1, h2, h3, h4, h5, h6, p, li {
+@media screen and (max-width: 1024) {
+  h1, h2, h3, h4, h5, h6, p, li, a{
     font-size: 0.875rem;
   }
 }

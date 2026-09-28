@@ -18,7 +18,7 @@ watch(marqueeContainerRef, (el) => {
   ctx = $gsap.context(() => {
     $gsap.to('[data-marquee-element]', {
       xPercent: -100,
-      duration: 40,
+      duration: 30,
       ease: 'none',
       repeat: -1,
     })

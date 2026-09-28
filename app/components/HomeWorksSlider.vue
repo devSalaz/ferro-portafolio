@@ -44,14 +44,16 @@ const onSlideChange = (swiper: SwiperType) => {
                             :space-between="16"
                             :loop="true"
                             :modules="[Mousewheel, Autoplay]"
-                            :mousewheel="true"
+                            :mousewheel="{ forceToAxis: true, thresholdDelta: 10, thresholdTime: 800 }"
                             :autoplay="{ delay: 5000, disableOnInteraction: false }"
                             @slide-change="onSlideChange"
                             class="absolute! inset-0 w-full h-full"
                         >
                             <SwiperSlide v-for="project in props.projects" :key="project.to">
-                                <NuxtImg v-if="project.media.type === 'image'" :src="project.media.src" :alt="project.media.alt ?? ''" class="w-full h-full object-cover" loading="lazy" />
-                                <video v-else :src="project.media.src" :title="project.media.alt ?? ''" autoplay muted loop playsinline preload="auto" class="w-full h-full object-cover"></video>
+                                <NuxtLink :to="project.to" :aria-label="project.title" class="flex h-full justify-center items-center">
+                                    <NuxtImg v-if="project.media.type === 'image'" :src="project.media.src" :alt="project.media.alt ?? ''" class="w-full aspect-3/2  object-cover" loading="lazy" />
+                                    <video v-else :src="project.media.src" :title="project.media.alt ?? ''" autoplay muted loop playsinline preload="auto" class="w-full aspect-3/2 object-cover"></video>
+                                </NuxtLink>
                             </SwiperSlide>
 
                         </Swiper>

@@ -127,7 +127,7 @@ onUnmounted(() => ctx?.revert())
                     </svg>
                   </span> 
                 </NuxtLink>
-                <span class="text-gray" v-else>Link down</span>
+                <span class="hidden lg:block text-gray" v-else>Link down</span>
               </div>
           </div>
 
@@ -143,8 +143,10 @@ onUnmounted(() => ctx?.revert())
                   </span> 
             </NuxtLink>
 
+            <span class="text-gray" v-else>Link down</span>
+
             <NuxtLink :to="page.nextProject" class="ml-auto flex font-medium items-center transition-colors duration-250 hover:text-red">
-                  Next proyect
+                  Next project
                   <span>
                     <svg class="ml-1" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_29_3128)">
