@@ -29,17 +29,29 @@ const currentSlideIndexRef = ref<number>(0);
 const onSlideChange = (swiper: SwiperType) => {
     currentSlideIndexRef.value = swiper.realIndex;
 };
+
+const SLIDE_GAP = 16;
+const SLIDE_ASPECT_RATIO = 3 / 2;
+
+const swiperContainerRef = ref<HTMLElement | null>(null);
+const { width: containerWidth, height: containerHeight } = useElementSize(swiperContainerRef);
+
+const slidesPerView = computed(() => {
+    if (!containerWidth.value || !containerHeight.value) return 2;
+    const slideHeight = containerWidth.value / SLIDE_ASPECT_RATIO;
+    return (containerHeight.value + SLIDE_GAP) / (slideHeight + SLIDE_GAP);
+});
 </script>
 
 <template>
     <div v-if="props.projects" class="w-full h-screen position absolute top-0 bottom-0 my-auto ">
         <div class="absolute bottom-0 left-0 w-full h-full grid grid-cols-12 items-center gap-5 gap-y-0">
             <div class="h-full col-start-2 row-start-1 col-span-5 flex justify-end">
-                <div data-intro="works-swiper" class="relative z-1 w-[96%] h-full min-h-0 overflow-hidden">
+                <div ref="swiperContainerRef" data-intro="works-swiper" class="relative z-1 w-[96%] h-full min-h-0 overflow-hidden">
                     <ClientOnly>
                         <Swiper
                             direction="vertical"
-                            :slides-per-view="2"
+                            :slides-per-view="slidesPerView"
                             :centered-slides="true"
                             :space-between="16"
                             :loop="true"
