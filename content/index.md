@@ -72,7 +72,7 @@ projects:
 
   - title: Innovation Ecosystem
     year: 2023
-    label: UX/UI - Development
+    label: UX/UI
     to: /works/edco
     media:
       type: image
