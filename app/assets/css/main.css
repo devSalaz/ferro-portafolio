@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+
+
+@theme {
+  --max-width-site: 1824px;
+  --padding-x-site: 48px;
+  
+  --color-dark: #2D2D2D;
+  --color-red: #EE1127;
+  --color-gray: #6F6F6F;
+  --color-light: #F8F8F8;
+
+  --font-sans: 'Geist Mono', monospace;
+
+  --breakpoint-lg: 1025px;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  :root {
+    --padding-x-site: 36px;
+  }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  :root {
+    --padding-x-site: 12px;
+  }
+}
+
+/* Desktop */
+:root {
+  --size-unit: 16;
+  --size-container-ideal: 1824; /* screen-size in design - no px */
+  --size-container-min: 1024px;
+  --size-container-max: 1824px;
+  --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+  --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  :root {
+    --size-container-ideal: 834;
+    --size-container-min: 768px;
+    --size-container-max: 1024px;
+  }
+}
+
+/* Mobile Landscape */
+@media screen and (max-width: 767px) {
+  :root {
+    --size-container-ideal: 550; /* screen-size in design - no px */
+    --size-container-min: 480px;
+    --size-container-max: 767px;
+  }
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  :root {
+    --size-container-ideal: 390; /* screen-size in design - no px */
+    --size-container-min: 320px;
+    --size-container-max: 479px;
+  }
+}
+
+html {
+  font-size: var(--size-font);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+::selection {  
+  background-color: var(--color-red);
+  color: var(--color-light);
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+    font-size: 0.9375rem;
+    font-style: normal;
+    line-height: 120%;
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 479px) {
+  h1, h2, h3, h4, h5, h6, p, li {
+    font-size: 0.875rem;
+  }
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img, video {
+  user-select: none;
+  pointer-events: none;
+}
+/* Intro del home (solo desktop). La clase la pone un script inline en el <head>
+   antes del primer paint y GSAP la quita al terminar (ver transitions/intro.ts). */
+html.is-intro [data-intro] {
+  opacity: 0;
+}
+
+html.is-intro [data-intro],
+html.is-intro [data-intro] * {
+  pointer-events: none !important;
+}

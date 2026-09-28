@@ -1,0 +1,29 @@
+{
+  "html.autoClosingTags": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.ts": "never", 
+    "source.fixAll.eslint": "never",
+    "source.organizeImports": "never"
+  },
+  "editor.formatOnSave": false,
+  "eslint.useFlatConfig": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "mdc.enableFormatting": false,
+  "mdc.enableComponentMetadataCompletions": true,
+  "[mdc]": {
+    "editor.folding": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "Nuxt.mdc"
+  }
+}
