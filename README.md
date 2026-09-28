@@ -43,3 +43,4 @@ El contenido vive en `content/` como archivos Markdown:
 - `content/works/*.md` — un archivo por proyecto
 
 El nombre del archivo define la URL: `kevin-fonseca.md` → `/works/kevin-fonseca`.
+                                     `cj-agency.md` → `/works/cj-agency`.
