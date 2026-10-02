@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, Mousewheel } from 'swiper/modules'
+import { Autoplay, Mousewheel, FreeMode } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 
@@ -55,8 +55,9 @@ const slidesPerView = computed(() => {
                             :centered-slides="true"
                             :space-between="16"
                             :loop="true"
-                            :modules="[Mousewheel, Autoplay]"
-                            :mousewheel="{ forceToAxis: true, thresholdDelta: 10, thresholdTime: 800 }"
+                            :modules="[Mousewheel, Autoplay, FreeMode]"
+                            :free-mode="{ enabled: true, momentum: true }"
+                            :mousewheel="{ forceToAxis: true, eventsTarget: 'body' }"
                             :autoplay="{ delay: 5000, disableOnInteraction: false }"
                             @slide-change="onSlideChange"
                             class="absolute! inset-0 w-full h-full"

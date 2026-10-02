@@ -9,11 +9,20 @@ useHead({
 
 const { isDesktop } = useDevice()
 
+const pageRoute = usePageRoute()
+
+const preventScroll = computed(() => (pageRoute.value === PageRoute.Home || pageRoute.value === PageRoute.About) && isDesktop.value)
+
+useHead({
+  bodyAttrs: {
+    style: computed(() => (preventScroll.value ? 'position: fixed; width: 100%;' : '')),
+  },
+})
+
 let introStarted = false
 let introFallback: ReturnType<typeof setTimeout>
 
 function startIntro() {
-  // El fondo se desmonta en mobile (v-if); al volver a desktop el canvas nuevo arranca con opacity: 0
   if (introStarted) return backgroundIn()
   introStarted = true
   clearTimeout(introFallback)
